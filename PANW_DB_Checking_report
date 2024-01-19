@@ -1,0 +1,21 @@
+import pandas as pd
+
+# 替換的對應名稱
+replacement_mapping = {
+    "Eval Request ID": "Eval ID",
+    "Eval Product: Fulfill Date": "Approved Date"
+}
+
+# 指定你的Excel檔案路徑
+excel_file_path = "你的檔案路徑.xlsx"  # 請替換成實際的檔案路徑
+
+# 讀取Excel檔案
+df = pd.read_excel(excel_file_path)
+
+# 替換欄位名稱
+df.rename(columns=replacement_mapping, inplace=True)
+
+# 將修改後的DataFrame寫回Excel檔案
+df.to_excel(excel_file_path, index=False)
+
+print("欄位名稱替換完成！")
